@@ -102,6 +102,54 @@ namespace EjemploCola
 
         }
 
+        static void impco2(ref Cola co2)
+        {
+            Cola ct = new Cola();
+            ct.ci();
+            iniciar(ref ct);
+            char dato = ' ';
+
+            Console.WriteLine("Imprimiendo datos de la Cola 2");
+
+            while(!empty(co2))
+            {
+                pop(ref co2, ref dato);
+                Console.WriteLine(dato);
+                push(ref ct, dato);
+            }
+
+            while(!empty(ct))
+            {
+                pop(ref ct, ref dato);
+                push(ref co2, dato);
+            }
+
+        }
+
+        static void impco3(ref Cola co3)
+        {
+            Cola ct = new Cola();
+            ct.ci();
+            iniciar(ref ct);
+            char dato = ' ';
+
+            Console.WriteLine("Imprimiendo datos de la Cola 2");
+
+            while (!empty(co3))
+            {
+                pop(ref co3, ref dato);
+                Console.WriteLine(dato);
+                push(ref ct, dato);
+            }
+
+            while (!empty(ct))
+            {
+                pop(ref ct, ref dato);
+                push(ref co3, dato);
+            }
+
+        }
+
         //OPERACIONES DE LA PILA
         public struct pila
         {
@@ -197,10 +245,12 @@ namespace EjemploCola
         {
             Console.WriteLine("\n<<<<< MENU >>>>>");
             Console.WriteLine("1. PUSH");
-            Console.WriteLine("2. POP");
-            Console.WriteLine("3. IMPRIMIR");
-            Console.WriteLine("4. UNIR COLAS");
-            Console.WriteLine("5. SALIR");
+            Console.WriteLine("2. POP");  
+            Console.WriteLine("3. UNIR COLAS");
+            Console.WriteLine("4. IMPRIMIR COLA 1");
+            Console.WriteLine("5. IMPRIMIR COLA 2");
+            Console.WriteLine("6. IMPRIMIR COLA 3");
+            Console.WriteLine("7. SALIR");
 
 
         }
@@ -252,9 +302,17 @@ namespace EjemploCola
                         break;
 
                     case 5:
+                        
+                        break;
+
+                    case 6:
+                        break;
+
+                    case 7:
                         Console.WriteLine("\nSALIR");
                         Environment.Exit(0);
                         break;
+
                     default: Console.WriteLine("\ningrese una opcion dentro del rango"); break;
                 }
             }
