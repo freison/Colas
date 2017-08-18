@@ -157,7 +157,7 @@ namespace EjemploCola
             po.tope--;
 
         }
-        static void tarea(ref Cola co)
+        static void tarea(ref Cola co, ref Cola co2)
         {
             Cola ct = new Cola();
             ct.ci();
@@ -204,7 +204,7 @@ namespace EjemploCola
 
 
         }
-        static void ejecutar(ref Cola co)
+        static void ejecutar(ref Cola co, ref Cola co2)
         {
 
             int op = 0;
@@ -248,7 +248,7 @@ namespace EjemploCola
                         break;
 
                     case 4:
-                        tarea(ref co);
+                        tarea(ref co, ref co2);
                         break;
 
                     case 5:
@@ -262,10 +262,13 @@ namespace EjemploCola
         }
         static void Main(string[] args)
         {
-            Cola co = new Cola();
-            co.ci();
-            iniciar(ref co);
-            ejecutar(ref co);
+            Cola co1 = new Cola();
+            co1.ci();
+            iniciar(ref co1);
+            Cola co2 = new Cola();
+            co2.ci();
+            iniciar(ref co2);
+            ejecutar(ref co1, ref co2);
             Console.ReadLine();
 
 
