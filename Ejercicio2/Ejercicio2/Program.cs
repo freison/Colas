@@ -159,26 +159,26 @@ namespace EjemploCola
         }
         static void tarea(ref Cola co)
         {
-            pila po = new pila();
-            po.pi();
-            Inic(ref po);
+            Cola ct = new Cola();
+            ct.ci();
+            iniciar(ref ct);
             char dato = ' ';
 
-            Console.WriteLine("\n Invirtiendo datos de la cola");
+            Console.WriteLine("\nUniendo Colas");
             while (!empty(co))
             {
                 pop(ref co, ref dato);
-                Push(ref po, dato);
+                push(ref ct, dato);
             }
             iniciar(ref co);
-            while (!Empty(po))
+            while (!empty(ct))
             {
-                Pop(ref po, ref dato);
+                pop(ref ct, ref dato);
                 push(ref co, dato);
             }
         }
 
-        //Sobre Carga de m?todo
+        //Sobre Carga de metodo
 
         static void pedir(string m, ref int op)
         {
@@ -199,7 +199,7 @@ namespace EjemploCola
             Console.WriteLine("1. PUSH");
             Console.WriteLine("2. POP");
             Console.WriteLine("3. IMPRIMIR");
-            Console.WriteLine("4. INVERTIR");
+            Console.WriteLine("4. UNIR COLAS");
             Console.WriteLine("5. SALIR");
 
 
