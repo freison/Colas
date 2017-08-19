@@ -15,9 +15,9 @@ namespace EjemploCola
             public int fin;
             public char[] c;
 
-            public void ci()
+            public void ci(int n)
             {
-                c = new char[N];
+                c = new char[n];
             }
         }
 
@@ -78,10 +78,10 @@ namespace EjemploCola
         }
 
 
-        static void imp(ref Cola co)
+        static void imp(ref Cola co, int n)
         {
             Cola ct = new Cola();
-            ct.ci();
+            ct.ci(n);
             iniciar(ref ct);
             char dato = ' ';
 
@@ -102,10 +102,10 @@ namespace EjemploCola
 
         }
 
-        static void impco2(ref Cola co2)
+        static void impco2(ref Cola co2, int n)
         {
             Cola ct = new Cola();
-            ct.ci();
+            ct.ci(n);
             iniciar(ref ct);
             char dato = ' ';
 
@@ -126,10 +126,10 @@ namespace EjemploCola
 
         }
 
-        static void impco3(ref Cola co3)
+        static void impco3(ref Cola co3, int n)
         {
             Cola ct = new Cola();
-            ct.ci();
+            ct.ci(n);
             iniciar(ref ct);
             char dato = ' ';
 
@@ -205,10 +205,10 @@ namespace EjemploCola
             po.tope--;
 
         }
-        static void tarea(ref Cola co, ref Cola co2)
+        static void tarea(ref Cola co, ref Cola co2, ref Cola co3, int n)
         {
             Cola ct = new Cola();
-            ct.ci();
+            ct.ci(n);
             iniciar(ref ct);
             char dato = ' ';
 
@@ -216,13 +216,13 @@ namespace EjemploCola
             while (!empty(co))
             {
                 pop(ref co, ref dato);
-                push(ref ct, dato);
+                push(ref co3, dato);
             }
             iniciar(ref co);
             while (!empty(ct))
             {
-                pop(ref ct, ref dato);
-                push(ref co, dato);
+                pop(ref co2, ref dato);
+                push(ref co3, dato);
             }
         }
 
@@ -230,7 +230,7 @@ namespace EjemploCola
 
         static void pedir(string m, ref int op)
         {
-            Console.Write("\n{0}", m);
+            Console.WriteLine("\n{0}", m);
             op = int.Parse(Console.ReadLine());
 
         }
@@ -254,7 +254,7 @@ namespace EjemploCola
 
 
         }
-        static void ejecutar(ref Cola co, ref Cola co2)
+        static void ejecutar(ref Cola co, ref Cola co2, ref Cola co3, int n)
         {
 
             int op = 0;
@@ -290,22 +290,30 @@ namespace EjemploCola
                         }
                         break;
                     case 3:
+                            tarea(ref co, ref co2, ref co3, n);
+                        break;
 
+                    case 4:                        
                         if (empty(co))
                             Console.WriteLine("\nNo se puede imprimir la cola Vacia...");
                         else
-                            imp(ref co);
-                        break;
-
-                    case 4:
-                        tarea(ref co, ref co2);
+                            imp(ref co, n);
                         break;
 
                     case 5:
-                        
+                        if (empty(co2))
+                            Console.WriteLine("\nNo se puede imprimir la cola Vacia...");
+                        else
+                            impco2(ref co2, n);
+
                         break;
 
                     case 6:
+                        if (empty(co3))
+                            Console.WriteLine("\nNo se puede imprimir la cola Vacia...");
+                        else
+                            impco3(ref co3, n);
+
                         break;
 
                     case 7:
@@ -316,17 +324,22 @@ namespace EjemploCola
                     default: Console.WriteLine("\ningrese una opcion dentro del rango"); break;
                 }
             }
-            while (op != 5);
+            while (op != 7);
         }
         static void Main(string[] args)
         {
+            int n = 0;
+            pedir("Ingrese la longitud de las colas", ref n);
             Cola co1 = new Cola();
-            co1.ci();
+            co1.ci(n);
             iniciar(ref co1);
             Cola co2 = new Cola();
-            co2.ci();
+            co2.ci(n);
             iniciar(ref co2);
-            ejecutar(ref co1, ref co2);
+            Cola co3 = new Cola();
+            co3.ci(n+n);
+            iniciar(ref co3);
+            ejecutar(ref co1, ref co2, ref co3, n);
             Console.ReadLine();
 
 
