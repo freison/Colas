@@ -104,7 +104,28 @@ namespace EjemploCola
      
         static void tarea(ref Cola co)
         {
-            
+            Cola ct = new Cola();
+            ct.ci();
+            iniciar(ref ct);
+            char dato = ' ';
+            int cont = 0;
+            Console.WriteLine("Contando datos de la cola");
+
+            while(!empty(co))
+            {
+                pop(ref co, ref dato);
+                cont++;
+                push(ref ct, dato);
+            }
+
+            iniciar(ref co);
+            while(!empty(ct))
+            {
+                pop(ref ct, ref dato);
+                push(ref co, dato);
+            }
+
+            Console.WriteLine("La cantidad de elementos en la cola es: {0}", cont);
         }
 
         //Sobre Carga de m?todo
@@ -128,7 +149,7 @@ namespace EjemploCola
             Console.WriteLine("1. PUSH");
             Console.WriteLine("2. POP");
             Console.WriteLine("3. IMPRIMIR");
-            Console.WriteLine("4. INVERTIR");
+            Console.WriteLine("4. CONTAR ELEMENTOS");
             Console.WriteLine("5. SALIR");
 
 
@@ -145,7 +166,7 @@ namespace EjemploCola
                 {
                     pedir("Dar la opcion: ", ref op);
                 }
-                while (op < 1 || op > 4);
+                while (op < 1 || op > 5);
 
                 switch (op)
                 {
