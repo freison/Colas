@@ -27,7 +27,7 @@ namespace COLAS
             public string[] c;
             public void ci()
             {
-                c = new string[N];
+                c = new string[N+N];
             }
         }
 
@@ -162,9 +162,42 @@ namespace COLAS
 
         }
 
+        static void Imp(ref Cola co3)
+        {
+            Cola ct = new Cola();
+            ct.ci();
+            Iniciar(ref co3);
+            char dato = ' ';
+            Console.WriteLine("Imprimiendo datos...");
+
+            while(!Empty(co3))
+            {
+                Pop(ref co3, ref dato);
+                Console.WriteLine(dato);
+                Push(ref co3, dato);
+            }
+
+            Iniciar(ref co3);
+            while(!Empty(ct))
+            {
+                Pop(ref ct, ref dato);
+                Push(ref co3, dato);
+            }
+
+        }
+
         static void Tarea(ref ColaS co1, ref ColaS co2, ref Cola co3)
         {
+            ColaS ct = new ColaS();
+            ct.ci();
+            Iniciar(ref ct);
+            string dato = " ";
+            Console.WriteLine("Realizando tarea...");
 
+            while(!Empty(co1))
+            {
+                Pop(ref co1, ref dato);
+            }
         }
 
         //Sobre Carga de m�todo
@@ -185,10 +218,14 @@ namespace COLAS
         static void Menu()
         {
             Console.WriteLine("\n<<<<< MENU >>>>>");
-            Console.WriteLine("1. PUSH");
-            Console.WriteLine("2. POP");
-            Console.WriteLine("3. IMPRIMIR");
-            Console.WriteLine("4. SALIR");
+            Console.WriteLine("1. PUSH COLA 1");
+            Console.WriteLine("2. POP COLA 1");
+            Console.WriteLine("3. PUSH COLA 2");
+            Console.WriteLine("4. POP COLA 2");
+            Console.WriteLine("5. IMPRIMIR COLA 1");
+            Console.WriteLine("6. IMPRIMIR COLA 2");
+            Console.WriteLine("7. IMPRIMIR COLA 3");
+            Console.WriteLine("8. SALIR");
 
 
         }
@@ -235,11 +272,27 @@ namespace COLAS
 
 
 
-                    case 4: Console.WriteLine("\nSALIR"); break;
+                    case 4:
+                        
+                        break;
+
+                    case 5:
+                        break;
+
+                    case 6:
+                        break;
+
+                    case 7:
+                        break;
+
+                    case 8:
+                        Console.WriteLine("\nSALIR");
+                        break;
+
                     default: Console.WriteLine("\ningrese una opcion dentro del rango"); break;
                 }
             }
-            while (op != 4);
+            while (op != 8);
         }
         static void Main(string[] args)
         {

@@ -165,7 +165,7 @@ namespace EjemploCola
                     pedir("Dar la opcion: ", ref op);
                 }
                 while (op < 1 || op > 5);
-
+                //Aun sin corregir
                 switch (op)
                 {
                     case 1:
